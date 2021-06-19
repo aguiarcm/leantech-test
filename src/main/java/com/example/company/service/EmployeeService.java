@@ -26,11 +26,6 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    @Transactional
-    public Employee save(Employee e) {
-        return employeeRepository.save(e);
-    }
-
     public List<Employee> findAll() {
         return employeeRepository.findAll();
     }

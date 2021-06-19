@@ -30,7 +30,7 @@ public class EmployeeController {
      */
     @PostMapping("/employees")
     Employee add(@RequestBody Employee employee) {
-        return employeeService.save(employee);
+        return employeeService.update(employee, -1l);
     }
 
     /**
@@ -43,8 +43,5 @@ public class EmployeeController {
     Employee replaceEmployee(@RequestBody Employee employee, @PathVariable Long id) {
         return employeeService.update(employee, id);
     }
-
-
-
 
 }
