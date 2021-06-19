@@ -14,19 +14,33 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
+    /**
+     * Return all employees
+     * @return List of {@link Employee}
+     */
     @GetMapping("/employees")
     Iterable<Employee> findAll() {
         return employeeService.findAll();
     }
 
+    /**
+     * saves a new employee
+     * @param employee
+     * @return
+     */
     @PostMapping("/employees")
     Employee add(@RequestBody Employee employee) {
         return employeeService.save(employee);
     }
 
+    /**
+     * updates or creates employee info
+     * @param employee
+     * @param id
+     * @return
+     */
     @PutMapping("/employees/{id}")
     Employee replaceEmployee(@RequestBody Employee employee, @PathVariable Long id) {
-
         return employeeService.update(employee, id);
     }
 

@@ -20,6 +20,14 @@ public class Person {
 
     protected Person() {}
 
+    /**
+     * Constructor for example purposes.
+     * @param firstName
+     */
+    public Person(String firstName) {
+        this.firstName = firstName;
+    }
+
     public Person(String firstName, String lastName, String address, String cellPhone, String cityName) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -50,6 +58,30 @@ public class Person {
 
     public String getCityName() {
         return cityName;
+    }
+
+    public void setPersonId(Long personId) {
+        this.personId = personId;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setCellPhone(String cellPhone) {
+        this.cellPhone = cellPhone;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 
     @Override
