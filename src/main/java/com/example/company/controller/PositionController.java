@@ -14,7 +14,6 @@ public class PositionController {
     @Autowired
     private PositionService positionService;
 
-
     @GetMapping("/positions")
     Iterable<Position> findAll() {
         return positionService.findAll();

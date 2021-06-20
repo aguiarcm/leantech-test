@@ -1,11 +1,14 @@
 package com.example.company.entity;
 
 
+import lombok.Data;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Data
 @Entity
 public class Person {
 
@@ -34,60 +37,5 @@ public class Person {
         this.address = address;
         this.cellPhone = cellPhone;
         this.cityName = cityName;
-    }
-
-    public Long getPersonId() {
-        return personId;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public String getCellPhone() {
-        return cellPhone;
-    }
-
-    public String getCityName() {
-        return cityName;
-    }
-
-    public void setPersonId(Long personId) {
-        this.personId = personId;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public void setCellPhone(String cellPhone) {
-        this.cellPhone = cellPhone;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("Person[id=%d, firstName='%s', lastName='%s', address='%s', " +
-                        "cellPhone='%s', cityName='%s']", personId, firstName, lastName,
-                address, cellPhone, cityName);
     }
 }

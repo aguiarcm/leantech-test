@@ -2,22 +2,15 @@ package com.example.company.service;
 
 
 import com.example.company.entity.Employee;
-import com.example.company.entity.Person;
-import com.example.company.entity.Position;
 import com.example.company.repository.EmployeeRepository;
+import com.example.company.repository.filter.EmployeeSpecifications;
+import com.example.company.searchcriteria.EmployeeSearchCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.Optional;
 
 
 @Service
@@ -26,14 +19,12 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    public List<Employee> findAll() {
-        return employeeRepository.findAll();
-    }
-
-    public Optional<Employee> findByEmployeeId(Long employeeId) {
-        return employeeRepository.findById(employeeId);
-    }
-
+    /**
+     * Saves or update given employee
+     * @param e
+     * @param id
+     * @return
+     */
     @Transactional
     public Employee update(Employee e, Long id) {
         employeeRepository.findById(id)
@@ -51,8 +42,13 @@ public class EmployeeService {
         return e;
     }
 
-    public List<Employee> findEmployeesByParams(String... params) {
-        //Employee e = new Employee(new Person(params[0]), new Position(params[1]));
-        return employeeRepository.findAll();
+    /**
+     * Search for employees matching criteria. Can be null for returning all.
+     * @param employeeSearchCriteria
+     * @return
+     */
+    public List<Employee> findAll(EmployeeSearchCriteria employeeSearchCriteria) {
+        Specification<Employee> employeeSpecification = EmployeeSpecifications.createEmployeeSpec(employeeSearchCriteria);
+        return employeeRepository.findAll(employeeSpecification);
     }
 }

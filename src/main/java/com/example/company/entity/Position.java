@@ -1,9 +1,12 @@
 package com.example.company.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Data
 @Entity
 public class Position {
 
@@ -17,40 +20,11 @@ public class Position {
 
     protected Position() {}
 
-    public List<Employee> getEmployees() {
-        return employees;
-    }
-
-    public void setEmployees(List<Employee> employees) {
-        this.employees = employees;
-    }
-
     public Position(Long id) {
         this.positionId = id;
     }
 
     public Position(Long id, String name) {
         this.name = name;
-    }
-
-    public void setPositionId(Long positionId) {
-        this.positionId = positionId;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Long getPositionId() {
-        return positionId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("Position[positionId=%d, name='%s']", positionId, name);
     }
 }

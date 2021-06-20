@@ -1,11 +1,12 @@
 package com.example.company.entity;
 
 
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Data;
 
 import javax.persistence.*;
 
+@Data
 @Entity
 public class Employee {
 
@@ -21,7 +22,7 @@ public class Employee {
     private Position position;
     private double salary;
 
-    protected Employee() {}
+    public Employee() {}
 
     public Employee(Person person, Position position, double salary ) {
         super();
@@ -34,37 +35,4 @@ public class Employee {
         this.person = person;
         this.position = position;
     }
-
-    public void setEmployeeId(Long employeeId) {
-        this.employeeId = employeeId;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
-    }
-
-    public void setPosition(Position position) {
-        this.position = position;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
-
-    public Long geEmployeeId() {
-        return employeeId;
-    }
-
-    public Person getPerson() {
-        return person;
-    }
-
-    public Position getPosition() {
-        return position;
-    }
-
-    public double getSalary() {
-        return salary;
-    }
-
 }
